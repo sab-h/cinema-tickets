@@ -110,7 +110,7 @@ import {
     });
   
     test("Throws an error if the account ID is invalid", () => {
-      expect(validateAccountID(0)).toB;
+      expect(validateAccountID(0)).toBe(false);
       expect(validateAccountID(-2)).toBe(false);
       expect(validateAccountID("text")).toBe(false);
     });
