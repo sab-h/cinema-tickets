@@ -17,8 +17,9 @@ export default class TicketService {
   #ticketPaymentService = new TicketPaymentService();
   #seatReservationService = new SeatReservationService();
   #invalidPurchaseException = InvalidPurchaseException;
-  
+
   purchaseTickets(accountId, ...ticketTypeRequests) {
+    // We try to fail early if the account ID is invalid
     if (!this.#validateAccountID(accountId)) {
       throw new this.#invalidPurchaseException(
         "Invalid account ID: " + accountId + "."
